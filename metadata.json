@@ -1,0 +1,6 @@
+{
+  "name": "Shawarma Time — Syrian Street Food & Online Ordering",
+  "description": "Authentic Syrian-inspired street food brand featuring toasted saj shawarma wraps, Arabi platters, garlic toum, and fast pickup and delivery ordering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
