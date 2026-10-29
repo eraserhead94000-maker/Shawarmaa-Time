@@ -1,42 +1,80 @@
 import { MenuItem, StoreLocation, CategoryId } from '../types';
 
-export const OFFICIAL_LOGO = '/src/assets/official_logo.png';
+// Vite-compatible asset imports (resolved and hashed during build for production)
+import officialLogo from '../assets/official_logo.png';
 
-// High-fidelity accurate food and drink images
-export const HERO_IMAGE = '/src/assets/images/hero_shawarma_spread_1793131192553.jpg';
-export const CHICKEN_WRAP_IMAGE = '/src/assets/images/food_chicken_shawarma_wrap_1793131194348.jpg';
-export const SHAWARMA_EXTRA_IMAGE = '/src/assets/images/food_shawarma_extra_1793133127177.jpg';
-export const SHAWARMA_TIME_CHEESE_IMAGE = '/src/assets/images/food_shawarma_time_cheese_1793133140484.jpg';
-export const BROODJE_FRIET_IMAGE = '/src/assets/images/food_broodje_friet_1793133099298.jpg';
-export const KIP_BURGER_IMAGE = '/src/assets/images/food_kip_burger_1793133114009.jpg';
-export const ARABI_PLATTER_IMAGE = '/src/assets/images/hero_shawarma_spread_1793131192553.jpg';
-export const BEEF_ARABI_IMAGE = '/src/assets/images/food_beef_arabi_platter_1793131194572.jpg';
-export const BATATA_FRIES_IMAGE = '/src/assets/images/food_batata_harra_fries_1793131194337.jpg';
-export const KAPSALON_IMAGE = '/src/assets/images/food_kapsalon_time_1793132403805.jpg';
-export const BROASTED_IMAGE = '/src/assets/images/food_broasted_crispy_chicken_1793132469932.jpg';
-export const MEZZA_IMAGE = '/src/assets/images/food_syrian_mezza_hummus_1793132466863.jpg';
+// High-fidelity food and hero images
+import heroShawarmaSpread from '../assets/images/hero_shawarma_spread_1793131192553.jpg';
+import chickenShawarmaWrap from '../assets/images/food_chicken_shawarma_wrap_1793131194348.jpg';
+import shawarmaExtra from '../assets/images/food_shawarma_extra_1793133127177.jpg';
+import shawarmaTimeCheese from '../assets/images/food_shawarma_time_cheese_1793133140484.jpg';
+import broodjeFriet from '../assets/images/food_broodje_friet_1793133099298.jpg';
+import kipBurger from '../assets/images/food_kip_burger_1793133114009.jpg';
+import beefArabiPlatter from '../assets/images/food_beef_arabi_platter_1793131194572.jpg';
+import batataHarraFries from '../assets/images/food_batata_harra_fries_1793131194337.jpg';
+import kapsalonTime from '../assets/images/food_kapsalon_time_1793132403805.jpg';
+import broastedCrispyChicken from '../assets/images/food_broasted_crispy_chicken_1793132469932.jpg';
+import syrianMezzaHummus from '../assets/images/food_syrian_mezza_hummus_1793132466863.jpg';
 
 // Dedicated accurate drink images
-export const DRINK_LIPTON_PEACH_IMAGE = '/src/assets/images/drink_lipton_ice_tea_1793133417816.jpg';
-export const DRINK_RED_BULL_IMAGE = '/src/assets/images/drink_red_bull_can_1793133431803.jpg';
-export const DRINK_COCA_COLA_IMAGE = '/src/assets/images/drink_coca_cola_can_1793133432716.jpg';
-export const DRINK_AYRAN_IMAGE = '/src/assets/images/drink_ayran_yogurt_1793133433277.jpg';
-export const DRINK_SPA_IMAGE = '/src/assets/images/drink_spa_water_bottle_1793133433417.jpg';
-export const DRINK_CAPRI_SUN_IMAGE = '/src/assets/images/drink_capri_sun_pouch_1793133450043.jpg';
-export const DRINK_FANTA_IMAGE = '/src/assets/images/drink_fanta_orange_can_1793133463717.jpg';
-export const DRINK_7UP_IMAGE = '/src/assets/images/drink_7up_lemon_can_1793133463595.jpg';
+import drinkLiptonIceTea from '../assets/images/drink_lipton_ice_tea_1793133417816.jpg';
+import drinkRedBullCan from '../assets/images/drink_red_bull_can_1793133431803.jpg';
+import drinkCocaColaCan from '../assets/images/drink_coca_cola_can_1793133432716.jpg';
+import drinkAyranYogurt from '../assets/images/drink_ayran_yogurt_1793133433277.jpg';
+import drinkSpaWaterBottle from '../assets/images/drink_spa_water_bottle_1793133433417.jpg';
+import drinkCapriSunPouch from '../assets/images/drink_capri_sun_pouch_1793133450043.jpg';
+import drinkFantaOrangeCan from '../assets/images/drink_fanta_orange_can_1793133463717.jpg';
+import drink7upLemonCan from '../assets/images/drink_7up_lemon_can_1793133463595.jpg';
 
 // Dedicated accurate Bijgerechten (Side dishes) images - 10 distinct photos
-export const SIDE_KIPNUGGETS_IMAGE = '/src/assets/images/side_kipnuggets_1793134894315.jpg';
-export const SIDE_SAMBOSA_KAAS_IMAGE = '/src/assets/images/side_sambosa_kaas_1793134906371.jpg';
-export const SIDE_SAMBOSA_VLEES_IMAGE = '/src/assets/images/side_sambosa_vlees_1793134918214.jpg';
-export const SIDE_MUTABAL_IMAGE = '/src/assets/images/side_mutabal_1793134930956.jpg';
-export const SIDE_HUMMUS_IMAGE = '/src/assets/images/side_hummus_1793134943167.jpg';
-export const SIDE_KIBBEH_IMAGE = '/src/assets/images/side_kibbeh_1793134955615.jpg';
-export const SIDE_KOMKOMMER_YOGHURT_IMAGE = '/src/assets/images/side_komkommer_yoghurt_1793134968400.jpg';
-export const SIDE_MUHAMMARA_IMAGE = '/src/assets/images/side_muhammara_1793134980557.jpg';
-export const SIDE_WIJNLADEREN_IMAGE = '/src/assets/images/side_wijnbladeren_1793134993454.jpg';
-export const SIDE_FRIT_SCHOTEL_IMAGE = '/src/assets/images/side_frit_schotel_1793135005895.jpg';
+import sideKipnuggets from '../assets/images/side_kipnuggets_1793134894315.jpg';
+import sideSambosaKaas from '../assets/images/side_sambosa_kaas_1793134906371.jpg';
+import sideSambosaVlees from '../assets/images/side_sambosa_vlees_1793134918214.jpg';
+import sideMutabal from '../assets/images/side_mutabal_1793134930956.jpg';
+import sideHummus from '../assets/images/side_hummus_1793134943167.jpg';
+import sideKibbeh from '../assets/images/side_kibbeh_1793134955615.jpg';
+import sideKomkommerYoghurt from '../assets/images/side_komkommer_yoghurt_1793134968400.jpg';
+import sideMuhammara from '../assets/images/side_muhammara_1793134980557.jpg';
+import sideWijnbladeren from '../assets/images/side_wijnbladeren_1793134993454.jpg';
+import sideFritSchotel from '../assets/images/side_frit_schotel_1793135005895.jpg';
+
+export const OFFICIAL_LOGO = officialLogo;
+
+// High-fidelity accurate food and drink images
+export const HERO_IMAGE = heroShawarmaSpread;
+export const CHICKEN_WRAP_IMAGE = chickenShawarmaWrap;
+export const SHAWARMA_EXTRA_IMAGE = shawarmaExtra;
+export const SHAWARMA_TIME_CHEESE_IMAGE = shawarmaTimeCheese;
+export const BROODJE_FRIET_IMAGE = broodjeFriet;
+export const KIP_BURGER_IMAGE = kipBurger;
+export const ARABI_PLATTER_IMAGE = heroShawarmaSpread;
+export const BEEF_ARABI_IMAGE = beefArabiPlatter;
+export const BATATA_FRIES_IMAGE = batataHarraFries;
+export const KAPSALON_IMAGE = kapsalonTime;
+export const BROASTED_IMAGE = broastedCrispyChicken;
+export const MEZZA_IMAGE = syrianMezzaHummus;
+
+// Dedicated accurate drink images
+export const DRINK_LIPTON_PEACH_IMAGE = drinkLiptonIceTea;
+export const DRINK_RED_BULL_IMAGE = drinkRedBullCan;
+export const DRINK_COCA_COLA_IMAGE = drinkCocaColaCan;
+export const DRINK_AYRAN_IMAGE = drinkAyranYogurt;
+export const DRINK_SPA_IMAGE = drinkSpaWaterBottle;
+export const DRINK_CAPRI_SUN_IMAGE = drinkCapriSunPouch;
+export const DRINK_FANTA_IMAGE = drinkFantaOrangeCan;
+export const DRINK_7UP_IMAGE = drink7upLemonCan;
+
+// Dedicated accurate Bijgerechten (Side dishes) images - 10 distinct photos
+export const SIDE_KIPNUGGETS_IMAGE = sideKipnuggets;
+export const SIDE_SAMBOSA_KAAS_IMAGE = sideSambosaKaas;
+export const SIDE_SAMBOSA_VLEES_IMAGE = sideSambosaVlees;
+export const SIDE_MUTABAL_IMAGE = sideMutabal;
+export const SIDE_HUMMUS_IMAGE = sideHummus;
+export const SIDE_KIBBEH_IMAGE = sideKibbeh;
+export const SIDE_KOMKOMMER_YOGHURT_IMAGE = sideKomkommerYoghurt;
+export const SIDE_MUHAMMARA_IMAGE = sideMuhammara;
+export const SIDE_WIJNLADEREN_IMAGE = sideWijnbladeren;
+export const SIDE_FRIT_SCHOTEL_IMAGE = sideFritSchotel;
 
 export interface CategoryInfo {
   id: CategoryId;

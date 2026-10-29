@@ -21,8 +21,8 @@ export const MobileStickyBar: React.FC<MobileStickyBarProps> = ({
   const subtotal = cart.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0);
 
   return (
-    <div className="md:hidden fixed bottom-3 left-3 right-3 z-30 pointer-events-auto">
-      <div className="bg-stone-950/95 backdrop-blur-md text-white p-2.5 rounded-full shadow-2xl border-2 border-amber-300 flex items-center justify-between gap-2">
+    <div className="md:hidden fixed bottom-[calc(0.75rem+env(safe-area-inset-bottom,0px))] left-3 right-3 z-30 pointer-events-auto">
+      <div className="bg-stone-950/95 backdrop-blur-md text-white p-2 rounded-full shadow-2xl border-2 border-amber-300 flex items-center justify-between gap-2">
         {totalItems > 0 ? (
           <>
             {/* Basket summary button */}

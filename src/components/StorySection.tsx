@@ -11,15 +11,15 @@ export const StorySection: React.FC<StorySectionProps> = ({ language }) => {
   const isNl = language === 'nl';
 
   return (
-    <section id="story" className="py-20 bg-[#FFFDF7] relative overflow-hidden scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="story" className="py-10 sm:py-20 bg-[#FFFDF7] relative overflow-hidden scroll-mt-16 sm:scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Title & Kicker */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-amber-100 text-amber-950 text-xs font-black uppercase tracking-wider">
-            <Award className="w-4 h-4 text-[#E53935]" /> Shawarma Time Venlo
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16 space-y-2 sm:space-y-3">
+          <div className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1 rounded-full bg-amber-100 text-amber-950 text-[11px] sm:text-xs font-black uppercase tracking-wider">
+            <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E53935]" /> Shawarma Time Venlo
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-stone-900 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-stone-900 tracking-tight leading-tight">
             {isNl ? (
               <>
                 AUTHENTIEKE SYRISCHE RECEPTEN. <br />
@@ -32,7 +32,7 @@ export const StorySection: React.FC<StorySectionProps> = ({ language }) => {
               </>
             )}
           </h2>
-          <p className="text-stone-600 font-medium text-base sm:text-lg leading-relaxed">
+          <p className="text-stone-600 font-medium text-xs sm:text-base lg:text-lg leading-relaxed">
             {isNl
               ? 'Bij Shawarma Time aan de Puteanusstraat in Venlo proef je het verschil. Wij werken uitsluitend met 100% halal kwaliteitsvlees, traditioneel getoast Syrisch platbrood en onze befaamde huisgemaakte knoflooksaus.'
               : 'At Shawarma Time on Puteanusstraat in Venlo, taste the difference. We craft every meal with 100% halal meat, freshly toasted Syrian flatbread, and our famous signature garlic sauce.'}
@@ -40,23 +40,23 @@ export const StorySection: React.FC<StorySectionProps> = ({ language }) => {
         </div>
 
         {/* 3 Pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-16">
           
           {/* Pillar 1 */}
-          <div className="bg-white rounded-3xl p-8 border-2 border-amber-200 shadow-md relative group hover:-translate-y-1 transition-all duration-300">
-            <div className="w-16 h-16 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center text-3xl font-black mb-6 group-hover:scale-110 transition-transform">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border-2 border-amber-200 shadow-md relative group hover:-translate-y-1 transition-all duration-300">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center text-2xl sm:text-3xl font-black mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
               🫓
             </div>
-            <h3 className="text-2xl font-black text-stone-900 mb-2">
+            <h3 className="text-xl sm:text-2xl font-black text-stone-900 mb-1.5 sm:mb-2">
               {isNl ? 'Syrisch Brood' : 'Syrian Flatbread'}
             </h3>
-            <p className="text-sm text-stone-600 leading-relaxed font-medium">
+            <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-medium">
               {isNl
                 ? 'Geen standaard pitabrood, maar traditioneel dun Syrisch platbrood dat na het rollen krokant wordt getoast zodat alle sappen en smaken verzegeld worden.'
                 : 'Not thick pita pockets, but authentic thin Syrian bread toasted crispy after rolling to seal in all juices and spices.'}
             </p>
-            <div className="mt-4 pt-4 border-t border-amber-100 flex items-center gap-1.5 text-xs font-black text-[#E53935]">
-              <Flame className="w-4 h-4" />
+            <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-amber-100 flex items-center gap-1.5 text-xs font-black text-[#E53935]">
+              <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>{isNl ? 'Krokant getoast per bestelling' : 'Toasted crispy per order'}</span>
             </div>
           </div>

@@ -187,7 +187,7 @@ export default function App() {
         }}
       />
 
-      <main className="flex-1 pb-16 md:pb-0">
+      <main className="flex-1 pb-24 md:pb-0">
         {/* 3. Hero Section */}
         <Hero
           language={language}

@@ -82,7 +82,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         </button>
 
         {/* Modal Header & Image */}
-        <div className="relative h-56 sm:h-64 w-full shrink-0 overflow-hidden bg-stone-100">
+        <div className="relative h-44 sm:h-64 w-full shrink-0 overflow-hidden bg-stone-100">
           <img
             src={item.image}
             alt={itemName}
@@ -91,10 +91,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-stone-950/20 to-transparent" />
 
           {/* Badges */}
-          <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+          <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex flex-wrap gap-1.5 sm:gap-2">
             {item.badge && (
               <span
-                className={`px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider shadow-md ${
+                className={`px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider shadow-md ${
                   item.badgeColor === 'red'
                     ? 'bg-[#E53935] text-white'
                     : item.badgeColor === 'orange'
@@ -108,21 +108,21 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </span>
             )}
             {item.variants && item.variants.length > 0 && (
-              <span className="px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-stone-900/80 text-white shadow-md backdrop-blur-xs">
+              <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider bg-stone-900/80 text-white shadow-md backdrop-blur-xs">
                 {isNl ? `${item.variants.length} Opties` : `${item.variants.length} Options`}
               </span>
             )}
           </div>
 
           {/* Price Tag in Image Header */}
-          <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-white">
+          <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-end justify-between text-white gap-2">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-black tracking-tight drop-shadow-md">
+              <h2 className="text-lg sm:text-3xl font-black tracking-tight drop-shadow-md">
                 {itemName}
               </h2>
             </div>
-            <div className="bg-[#E53935] px-3.5 py-1.5 rounded-2xl shadow-lg border border-rose-400 text-right shrink-0">
-              <span className="text-xl sm:text-2xl font-black tabular-nums text-white">
+            <div className="bg-[#E53935] px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-xl sm:rounded-2xl shadow-lg border border-rose-400 text-right shrink-0">
+              <span className="text-lg sm:text-2xl font-black tabular-nums text-white">
                 € {unitPrice.toFixed(2).replace('.', ',')}
               </span>
             </div>
@@ -130,7 +130,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         </div>
 
         {/* Scrollable Body */}
-        <div className="p-5 sm:p-6 overflow-y-auto space-y-5">
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-4 sm:space-y-5">
           {/* Description */}
           <p className="text-stone-700 text-sm sm:text-base leading-relaxed">
             {itemDesc}

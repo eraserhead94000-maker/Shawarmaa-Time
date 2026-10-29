@@ -11,11 +11,11 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
   const isNl = language === 'nl';
 
   return (
-    <footer className="bg-stone-950 text-stone-300 pt-16 pb-12 border-t-4 border-[#E53935]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-stone-950 text-stone-300 pt-10 sm:pt-16 pb-8 sm:pb-12 border-t-4 border-[#E53935]">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-stone-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10 pb-8 sm:pb-12 border-b border-stone-800">
           
           {/* Brand Col with Authentic Official Logo */}
           <div className="space-y-4">

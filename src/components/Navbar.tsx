@@ -23,16 +23,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="sticky top-0 z-40 bg-[#FFFDF7]/95 backdrop-blur-md border-b border-amber-200/80 shadow-xs transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 lg:h-20 flex items-center justify-between gap-2 sm:gap-4">
         
         {/* Zone 1: Authentic Official Shawarma Time Logo */}
         <a
           href="#top"
-          className="group flex items-center gap-3 text-stone-900 whitespace-nowrap shrink-0 rounded-2xl focus-visible:outline-[#E53935]"
+          className="group flex items-center gap-2 sm:gap-3 text-stone-900 whitespace-nowrap shrink-0 rounded-2xl focus-visible:outline-[#E53935]"
           title="Shawarma Time Venlo"
         >
           {/* Authentic Logo container with rounded styling */}
-          <div className="h-14 w-20 sm:w-22 rounded-2xl bg-white border-2 border-amber-200/90 shadow-sm flex items-center justify-center p-1 group-hover:scale-105 transition-transform overflow-hidden">
+          <div className="h-9 w-13 sm:h-12 sm:w-16 lg:h-14 lg:w-22 rounded-xl sm:rounded-2xl bg-white border-2 border-amber-200/90 shadow-sm flex items-center justify-center p-0.5 sm:p-1 group-hover:scale-105 transition-transform overflow-hidden">
             <img
               src={OFFICIAL_LOGO}
               alt="Shawarma Time - Authentic Official Logo"
@@ -41,10 +41,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           <div className="flex flex-col">
-            <span className="text-xl sm:text-2xl font-black tracking-tight text-stone-900 leading-none">
+            <span className="text-base sm:text-xl lg:text-2xl font-black tracking-tight text-stone-900 leading-none">
               SHAWARMA <span className="text-[#E53935]">TIME</span>
             </span>
-            <span className="text-[11px] font-bold text-amber-700 tracking-wide uppercase mt-0.5">
+            <span className="text-[9px] sm:text-[11px] font-bold text-amber-700 tracking-wide uppercase mt-0.5">
               Venlo • Puteanusstraat 24
             </span>
           </div>
@@ -85,13 +85,13 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Zone 3: Language Switcher, Basket Icon & On-site Order Button */}
-        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           
           {/* Visible NL | EN Language Switcher */}
-          <div className="flex items-center p-1 rounded-full bg-stone-100 border border-stone-200 text-xs font-black shadow-inner">
+          <div className="flex items-center p-0.5 sm:p-1 rounded-full bg-stone-100 border border-stone-200 text-[11px] sm:text-xs font-black shadow-inner">
             <button
               onClick={() => onToggleLanguage('nl')}
-              className={`px-2.5 py-1 rounded-full transition-all cursor-pointer ${
+              className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full transition-all cursor-pointer ${
                 isNl
                   ? 'bg-[#E53935] text-white shadow-xs'
                   : 'text-stone-600 hover:text-stone-900'
@@ -100,10 +100,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               NL
             </button>
-            <span className="text-stone-300 text-[10px] px-0.5">|</span>
+            <span className="text-stone-300 text-[9px] sm:text-[10px] px-0.5">|</span>
             <button
               onClick={() => onToggleLanguage('en')}
-              className={`px-2.5 py-1 rounded-full transition-all cursor-pointer ${
+              className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full transition-all cursor-pointer ${
                 !isNl
                   ? 'bg-[#E53935] text-white shadow-xs'
                   : 'text-stone-600 hover:text-stone-900'
@@ -127,12 +127,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Dedicated Working Basket Drawer Trigger */}
           <button
             onClick={onOpenBasket}
-            className="relative flex items-center justify-center w-11 h-11 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-900 transition-all active:scale-95 border border-stone-200 shadow-xs cursor-pointer"
+            className="relative flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 lg:w-11 lg:h-11 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-900 transition-all active:scale-95 border border-stone-200 shadow-xs cursor-pointer"
             aria-label={isNl ? 'Winkelmand bekijken' : 'View Basket'}
           >
-            <ShoppingBag className="w-5 h-5 text-stone-800" />
+            <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 text-stone-800" />
             {basketCount > 0 && (
-              <span className="absolute -top-1 -right-1 flex items-center justify-center min-w-5 h-5 px-1 rounded-full bg-[#E53935] text-white text-xs font-black shadow-md animate-bounce">
+              <span className="absolute -top-1 -right-1 flex items-center justify-center min-w-4.5 h-4.5 sm:min-w-5 sm:h-5 px-1 rounded-full bg-[#E53935] text-white text-[10px] sm:text-xs font-black shadow-md animate-bounce">
                 {basketCount}
               </span>
             )}
@@ -141,7 +141,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Primary Action Button - On-Site Ordering */}
           <button
             onClick={onOrderClick}
-            className="hidden sm:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#E53935] hover:bg-[#D32F2F] text-white font-extrabold text-xs sm:text-sm tracking-wide shadow-md shadow-rose-600/25 transition-all hover:scale-102 active:scale-95 whitespace-nowrap shrink-0 cursor-pointer"
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 lg:px-5 py-2 sm:py-2.5 rounded-full bg-[#E53935] hover:bg-[#D32F2F] text-white font-extrabold text-xs sm:text-sm tracking-wide shadow-md shadow-rose-600/25 transition-all hover:scale-102 active:scale-95 whitespace-nowrap shrink-0 cursor-pointer"
           >
             <span>{isNl ? 'BESTEL ONLINE' : 'ORDER ONLINE'}</span>
           </button>
@@ -149,10 +149,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-stone-100 text-stone-800 hover:bg-stone-200 cursor-pointer"
+            className="lg:hidden flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-stone-100 text-stone-800 hover:bg-stone-200 cursor-pointer"
             aria-label="Navigatiemenu openen"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-4.5 h-4.5" /> : <MenuIcon className="w-4.5 h-4.5" />}
           </button>
         </div>
       </div>

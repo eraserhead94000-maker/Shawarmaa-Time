@@ -12,19 +12,19 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onStartOrder
   const isNl = language === 'nl';
 
   return (
-    <section id="locations" className="py-16 bg-[#FFFDF7] scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="locations" className="py-8 sm:py-16 bg-[#FFFDF7] scroll-mt-16 sm:scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Title */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 text-[#E53935] text-xs font-black uppercase tracking-wider mb-2">
             <MapPin className="w-3.5 h-3.5" />
             <span>{isNl ? 'Bezoek Ons in Venlo' : 'Visit Us in Venlo'}</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-stone-900 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-stone-900 tracking-tight">
             {isNl ? 'LOCATIE & OPENINGSTIJDEN' : 'LOCATION & OPENING HOURS'}
           </h2>
-          <p className="text-stone-600 font-medium text-base sm:text-lg mt-2">
+          <p className="text-stone-600 font-medium text-xs sm:text-base lg:text-lg mt-1 sm:mt-2">
             {isNl
               ? 'Kom gezellig langs voor afhalen of bestel direct online voor bezorging in Venlo en omstreken.'
               : 'Visit us for pickup or order directly online for fast delivery across Venlo.'}
@@ -32,7 +32,7 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onStartOrder
         </div>
 
         {/* Location Details Card */}
-        <div className="max-w-3xl mx-auto bg-white rounded-3xl p-6 sm:p-10 border-2 border-amber-200 shadow-xl relative overflow-hidden">
+        <div className="max-w-3xl mx-auto bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-10 border-2 border-amber-200 shadow-xl relative overflow-hidden">
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
