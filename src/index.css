@@ -1,12 +1,29 @@
 @import "tailwindcss";
 
 @layer base {
-  body {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 }
 
 /* Custom friendly bounce on active buttons */
+.btn-press {
+  transition: transform 0.15s ease-out, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
 .btn-press:active {
   transform: scale(0.96);
 }
@@ -18,4 +35,17 @@
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Respect user accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -102,19 +102,19 @@ export const StorySection: React.FC<StorySectionProps> = ({ language }) => {
         </div>
 
         {/* Visual Highlight Card */}
-        <div className="bg-amber-100 rounded-[2.5rem] p-8 sm:p-12 border-2 border-amber-300">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="bg-amber-100 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 lg:p-12 border-2 border-amber-300 overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
             
             <div className="lg:col-span-5 relative flex justify-center">
-              <div className="rounded-3xl overflow-hidden border-4 border-white shadow-xl max-w-sm w-full rotate-2">
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden border-2 sm:border-4 border-white shadow-xl max-w-sm w-full">
                 <img
                   src={KAPSALON_IMAGE}
                   alt="Kapsalon Time Venlo"
                   referrerPolicy="no-referrer"
-                  className="w-full h-72 object-cover"
+                  className="w-full h-52 sm:h-72 object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -left-2 sm:left-4 bg-[#E53935] text-white px-4 py-2 rounded-2xl font-black text-xs shadow-lg -rotate-6 border-2 border-white">
+              <div className="absolute bottom-2 left-2 sm:-bottom-4 sm:left-4 bg-[#E53935] text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl font-black text-[11px] sm:text-xs shadow-lg border-2 border-white">
                 Kapsalon Time • € 13,00
               </div>
             </div>

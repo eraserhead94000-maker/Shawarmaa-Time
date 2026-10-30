@@ -58,18 +58,18 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
           <button
             onClick={onClose}
             aria-label={isNl ? 'Sluiten' : 'Close'}
-            className="w-9 h-9 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 flex items-center justify-center transition-colors cursor-pointer"
+            className="w-10 h-10 min-w-10 min-h-10 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 flex items-center justify-center transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Pickup vs Delivery Selector */}
-        <div className="p-4 bg-amber-50 border-b border-amber-200">
+        <div className="p-3.5 sm:p-4 bg-amber-50 border-b border-amber-200">
           <div className="flex items-center gap-1.5 p-1 bg-white rounded-2xl border border-amber-200">
             <button
               onClick={() => setOrderType('pickup')}
-              className={`flex-1 py-2 px-3 rounded-xl text-xs font-black flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+              className={`flex-1 min-h-[44px] py-2.5 px-3 rounded-xl text-xs font-black flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
                 orderType === 'pickup'
                   ? 'bg-stone-900 text-white shadow-xs'
                   : 'text-stone-700 hover:bg-stone-100'
@@ -80,7 +80,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             </button>
             <button
               onClick={() => setOrderType('delivery')}
-              className={`flex-1 py-2 px-3 rounded-xl text-xs font-black flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+              className={`flex-1 min-h-[44px] py-2.5 px-3 rounded-xl text-xs font-black flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
                 orderType === 'delivery'
                   ? 'bg-[#E53935] text-white shadow-xs'
                   : 'text-stone-700 hover:bg-stone-100'
@@ -163,23 +163,23 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       </span>
 
                       {/* Quantity Controls */}
-                      <div className="flex items-center gap-2 bg-stone-100 rounded-full px-2 py-0.5 border border-stone-200">
+                      <div className="flex items-center gap-2 bg-stone-100 rounded-full px-2.5 py-1 border border-stone-200">
                         <button
                           onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
-                          className="w-6 h-6 rounded-full bg-white text-stone-700 flex items-center justify-center hover:bg-stone-200 transition-colors shadow-2xs cursor-pointer"
+                          className="w-8 h-8 min-w-8 min-h-8 rounded-full bg-white text-stone-700 flex items-center justify-center hover:bg-stone-200 transition-colors shadow-2xs cursor-pointer active:scale-95"
                           aria-label="Verminder aantal"
                         >
-                          <Minus className="w-3 h-3" />
+                          <Minus className="w-3.5 h-3.5" />
                         </button>
-                        <span className="text-xs font-black text-stone-900 w-4 text-center tabular-nums">
+                        <span className="text-xs font-black text-stone-900 w-5 text-center tabular-nums">
                           {item.quantity}
                         </span>
                         <button
                           onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
-                          className="w-6 h-6 rounded-full bg-white text-stone-700 flex items-center justify-center hover:bg-stone-200 transition-colors shadow-2xs cursor-pointer"
+                          className="w-8 h-8 min-w-8 min-h-8 rounded-full bg-white text-stone-700 flex items-center justify-center hover:bg-stone-200 transition-colors shadow-2xs cursor-pointer active:scale-95"
                           aria-label="Vermeerder aantal"
                         >
-                          <Plus className="w-3 h-3" />
+                          <Plus className="w-3.5 h-3.5" />
                         </button>
                       </div>
                     </div>
@@ -192,7 +192,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
         {/* Drawer Footer with Subtotal & Proceed to Checkout */}
         {cart.length > 0 && (
-          <div className="p-5 bg-white border-t border-amber-200 space-y-3 shadow-lg">
+          <div className="p-4 sm:p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))] bg-white border-t border-amber-200 space-y-3 shadow-lg">
             <div className="space-y-1.5 text-xs text-stone-600 font-semibold">
               <div className="flex justify-between">
                 <span>{isNl ? 'Subtotaal gerechten' : 'Items subtotal'}</span>
@@ -220,7 +220,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
             <button
               onClick={onProceedToCheckout}
-              className="btn-press w-full py-4 rounded-full bg-[#E53935] hover:bg-[#D32F2F] text-white font-black text-sm tracking-wide shadow-lg shadow-rose-600/30 flex items-center justify-center gap-2 cursor-pointer transition-transform active:scale-95"
+              className="btn-press w-full min-h-[48px] py-3.5 sm:py-4 rounded-full bg-[#E53935] hover:bg-[#D32F2F] text-white font-black text-sm tracking-wide shadow-lg shadow-rose-600/30 flex items-center justify-center gap-2 cursor-pointer transition-transform active:scale-95"
             >
               <span>{isNl ? 'NAAR AFREKENEN' : 'PROCEED TO CHECKOUT'}</span>
               <ArrowRight className="w-4 h-4" />

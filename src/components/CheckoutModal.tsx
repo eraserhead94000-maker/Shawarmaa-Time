@@ -101,26 +101,26 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-900/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-900/70 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6 animate-in fade-in duration-200">
       <div
-        className="relative w-full max-w-2xl bg-[#FFFDF7] rounded-3xl shadow-2xl border-2 border-amber-200/90 overflow-hidden flex flex-col max-h-[92vh]"
+        className="relative w-full max-w-2xl bg-[#FFFDF7] rounded-t-3xl sm:rounded-3xl shadow-2xl border-t-2 sm:border-2 border-amber-200/90 overflow-hidden flex flex-col max-h-[94vh] sm:max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-5 sm:p-6 border-b border-amber-200 bg-white flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <div className="p-4 sm:p-6 border-b border-amber-200 bg-white flex items-center justify-between">
+          <div className="flex items-center gap-2.5 sm:gap-3">
             <button
               onClick={onClose}
-              className="w-9 h-9 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 flex items-center justify-center transition-colors cursor-pointer"
+              className="w-10 h-10 min-w-10 min-h-10 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 flex items-center justify-center transition-colors cursor-pointer"
               title={isNl ? 'Terug' : 'Back'}
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-stone-900 tracking-tight">
+              <h2 className="text-lg sm:text-2xl font-black text-stone-900 tracking-tight leading-tight">
                 {isNl ? 'Afrekenen & Gegevens' : 'Checkout & Details'}
               </h2>
-              <p className="text-xs text-stone-500 font-medium">
+              <p className="text-[11px] sm:text-xs text-stone-500 font-medium">
                 {isNl ? 'Directe orderbevestiging bij Shawarma Time Venlo' : 'Direct order confirmation at Shawarma Time Venlo'}
               </p>
             </div>
@@ -128,24 +128,24 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 flex items-center justify-center transition-colors cursor-pointer"
+            className="w-10 h-10 min-w-10 min-h-10 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 flex items-center justify-center transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Scrollable Form Body */}
-        <form onSubmit={handleSubmit} className="overflow-y-auto p-5 sm:p-7 space-y-6 flex-1">
+        <form onSubmit={handleSubmit} className="overflow-y-auto p-4 sm:p-7 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))] space-y-5 sm:space-y-6 flex-1">
           {/* Order Type Toggle */}
           <div className="space-y-2">
             <label className="block text-xs font-black uppercase tracking-wider text-stone-900">
               {isNl ? '1. Hoe wilt u uw bestelling ontvangen?' : '1. How would you like to receive your order?'}
             </label>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-2.5 sm:gap-3">
               <button
                 type="button"
                 onClick={() => setOrderType('pickup')}
-                className={`p-3.5 rounded-2xl border-2 flex items-center justify-center gap-2.5 font-extrabold text-sm transition-all cursor-pointer ${
+                className={`min-h-[44px] p-3 sm:p-3.5 rounded-2xl border-2 flex items-center justify-center gap-2 font-extrabold text-xs sm:text-sm transition-all cursor-pointer ${
                   orderType === 'pickup'
                     ? 'border-stone-900 bg-stone-900 text-white shadow-md'
                     : 'border-stone-200 hover:border-amber-300 bg-white text-stone-800'
@@ -158,7 +158,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               <button
                 type="button"
                 onClick={() => setOrderType('delivery')}
-                className={`p-3.5 rounded-2xl border-2 flex items-center justify-center gap-2.5 font-extrabold text-sm transition-all cursor-pointer ${
+                className={`min-h-[44px] p-3 sm:p-3.5 rounded-2xl border-2 flex items-center justify-center gap-2 font-extrabold text-xs sm:text-sm transition-all cursor-pointer ${
                   orderType === 'delivery'
                     ? 'border-[#E53935] bg-[#E53935] text-white shadow-md'
                     : 'border-stone-200 hover:border-amber-300 bg-white text-stone-800'
@@ -186,7 +186,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="bijv. Jan Jansen"
-                  className={`w-full px-3.5 py-2.5 rounded-xl border bg-white text-sm focus:outline-[#E53935] ${
+                  className={`w-full px-3.5 py-2.5 rounded-xl border bg-white text-base sm:text-sm focus:outline-[#E53935] ${
                     errors.fullName ? 'border-red-500 ring-1 ring-red-500' : 'border-stone-300'
                   }`}
                 />
@@ -202,7 +202,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="bijv. 06 12345678"
-                  className={`w-full px-3.5 py-2.5 rounded-xl border bg-white text-sm focus:outline-[#E53935] ${
+                  className={`w-full px-3.5 py-2.5 rounded-xl border bg-white text-base sm:text-sm focus:outline-[#E53935] ${
                     errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-stone-300'
                   }`}
                 />
@@ -219,7 +219,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="bijv. jan@example.com"
-                className={`w-full px-3.5 py-2.5 rounded-xl border bg-white text-sm focus:outline-[#E53935] ${
+                className={`w-full px-3.5 py-2.5 rounded-xl border bg-white text-base sm:text-sm focus:outline-[#E53935] ${
                   errors.email ? 'border-red-500 ring-1 ring-red-500' : 'border-stone-300'
                 }`}
               />
@@ -243,7 +243,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   value={streetAddress}
                   onChange={(e) => setStreetAddress(e.target.value)}
                   placeholder="bijv. Kaldenkerkerweg 12"
-                  className={`w-full px-3.5 py-2.5 rounded-xl border bg-white text-sm focus:outline-[#E53935] ${
+                  className={`w-full px-3.5 py-2.5 rounded-xl border bg-white text-base sm:text-sm focus:outline-[#E53935] ${
                     errors.streetAddress ? 'border-red-500 ring-1 ring-red-500' : 'border-stone-300'
                   }`}
                 />
@@ -260,7 +260,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     value={postalCode}
                     onChange={(e) => setPostalCode(e.target.value)}
                     placeholder="bijv. 5911 EV"
-                    className={`w-full px-3.5 py-2.5 rounded-xl border bg-white text-sm focus:outline-[#E53935] ${
+                    className={`w-full px-3.5 py-2.5 rounded-xl border bg-white text-base sm:text-sm focus:outline-[#E53935] ${
                       errors.postalCode ? 'border-red-500 ring-1 ring-red-500' : 'border-stone-300'
                     }`}
                   />
@@ -276,7 +276,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     placeholder="Venlo"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm focus:outline-[#E53935]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-base sm:text-sm focus:outline-[#E53935]"
                   />
                 </div>
               </div>
@@ -293,7 +293,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder={isNl ? 'Bijv. graag extra knoflooksaus apart, bel aan bij aankomst...' : 'E.g. extra garlic sauce on the side, ring doorbell...'}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm focus:outline-[#E53935] resize-none"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-base sm:text-sm focus:outline-[#E53935] resize-none"
             />
           </div>
 
@@ -356,7 +356,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             <button
               type="submit"
               disabled={isSubmitting || cart.length === 0}
-              className="btn-press w-full py-4 rounded-full bg-[#E53935] hover:bg-[#D32F2F] text-white font-black text-base tracking-wide shadow-xl shadow-rose-600/30 flex items-center justify-center gap-2 cursor-pointer transition-all disabled:opacity-50"
+              className="btn-press w-full min-h-[50px] py-4 rounded-full bg-[#E53935] hover:bg-[#D32F2F] text-white font-black text-base tracking-wide shadow-xl shadow-rose-600/30 flex items-center justify-center gap-2 cursor-pointer transition-all disabled:opacity-50"
             >
               {isSubmitting ? (
                 <span>{isNl ? 'Bezig met registreren...' : 'Placing order...'}</span>

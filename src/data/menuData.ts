@@ -15,6 +15,9 @@ import batataHarraFries from '../assets/images/food_batata_harra_fries_179313119
 import kapsalonTime from '../assets/images/food_kapsalon_time_1793132403805.jpg';
 import broastedCrispyChicken from '../assets/images/food_broasted_crispy_chicken_1793132469932.jpg';
 import syrianMezzaHummus from '../assets/images/food_syrian_mezza_hummus_1793132466863.jpg';
+import crispyChickenWrap from '../assets/images/crispy_chicken_wrap_1793317811621.jpg';
+import spicyZingerWrap from '../assets/images/spicy_zinger_wrap_1793317811968.jpg';
+import classicBeefBurger from '../assets/images/classic_beef_burger_1793317812410.jpg';
 
 // Dedicated accurate drink images
 import drinkLiptonIceTea from '../assets/images/drink_lipton_ice_tea_1793133417816.jpg';
@@ -53,6 +56,9 @@ export const BATATA_FRIES_IMAGE = batataHarraFries;
 export const KAPSALON_IMAGE = kapsalonTime;
 export const BROASTED_IMAGE = broastedCrispyChicken;
 export const MEZZA_IMAGE = syrianMezzaHummus;
+export const CRISPY_CHICKEN_WRAP_IMAGE = crispyChickenWrap;
+export const SPICY_ZINGER_WRAP_IMAGE = spicyZingerWrap;
+export const CLASSIC_BEEF_BURGER_IMAGE = classicBeefBurger;
 
 // Dedicated accurate drink images
 export const DRINK_LIPTON_PEACH_IMAGE = drinkLiptonIceTea;
@@ -216,7 +222,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Syrisch brood met kipfilet, mayonaise, coleslaw en augurk.',
     descriptionEn: 'Syrian bread with crispy chicken breast, mayonnaise, coleslaw, and pickles.',
     price: 9.50,
-    image: BROASTED_IMAGE,
+    image: CRISPY_CHICKEN_WRAP_IMAGE,
     badge: 'KROKANT',
     badgeEn: 'CRISPY',
     badgeColor: 'amber',
@@ -230,7 +236,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Syrisch brood met pikante kipfilet, mayonaise, kaas, coleslaw, augurk en cocktailsaus.',
     descriptionEn: 'Syrian bread with spicy chicken breast, mayonnaise, cheese, coleslaw, pickles, and cocktail sauce.',
     price: 10.50,
-    image: BROASTED_IMAGE,
+    image: SPICY_ZINGER_WRAP_IMAGE,
     badge: 'PIKANT',
     badgeEn: 'SPICY',
     badgeColor: 'red',
@@ -292,7 +298,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Rundvleesburger met sla, tomaat, augurk, kaas en burgersaus.',
     descriptionEn: 'Beef burger with lettuce, tomato, pickles, cheese, and burger sauce.',
     price: 8.50,
-    image: BEEF_ARABI_IMAGE,
+    image: CLASSIC_BEEF_BURGER_IMAGE,
     allergens: 'A,C,G',
   },
 

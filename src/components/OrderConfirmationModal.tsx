@@ -33,16 +33,16 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
   )}`;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-900/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-900/75 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6 animate-in fade-in duration-200">
       <div
-        className="relative w-full max-w-xl bg-[#FFFDF7] rounded-3xl shadow-2xl border-2 border-emerald-300 overflow-hidden flex flex-col max-h-[92vh]"
+        className="relative w-full max-w-xl bg-[#FFFDF7] rounded-t-3xl sm:rounded-3xl shadow-2xl border-t-2 sm:border-2 border-emerald-300 overflow-hidden flex flex-col max-h-[94vh] sm:max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Badge */}
-        <div className="p-6 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white relative">
+        <div className="p-4 sm:p-6 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white relative">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 w-10 h-10 min-w-10 min-h-10 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -192,7 +192,7 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-xs transition-colors"
+                className="min-h-[44px] py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-xs transition-colors"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span>{isNl ? 'WhatsApp naar Keuken' : 'WhatsApp to Kitchen'}</span>
@@ -200,7 +200,7 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
 
               <a
                 href={`tel:${OFFICIAL_STORE.phone.replace(/\s+/g, '')}`}
-                className="py-2.5 px-3 rounded-xl bg-white hover:bg-stone-100 text-stone-900 font-extrabold text-xs flex items-center justify-center gap-1.5 border border-stone-300 transition-colors"
+                className="min-h-[44px] py-2.5 px-3 rounded-xl bg-white hover:bg-stone-100 text-stone-900 font-extrabold text-xs flex items-center justify-center gap-1.5 border border-stone-300 transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-emerald-600" />
                 <span>077 785 4192</span>
@@ -209,11 +209,11 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
           </div>
         </div>
 
-        {/* Modal Footer */}
-        <div className="p-4 sm:p-5 bg-white border-t border-amber-200 flex flex-col sm:flex-row items-center gap-2.5">
+        {/* Modal Footer with Safe Area */}
+        <div className="p-4 sm:p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))] bg-white border-t border-amber-200 flex flex-col sm:flex-row items-center gap-2.5">
           <button
             onClick={handlePrint}
-            className="w-full sm:w-auto py-3 px-5 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold flex items-center justify-center gap-1.5 border border-stone-200 cursor-pointer"
+            className="w-full sm:w-auto min-h-[44px] py-3 px-5 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold flex items-center justify-center gap-1.5 border border-stone-200 cursor-pointer"
           >
             <Printer className="w-3.5 h-3.5 text-stone-600" />
             <span>{isNl ? 'Print / Bewaar Bon' : 'Print / Save Receipt'}</span>
@@ -221,7 +221,7 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
 
           <button
             onClick={onClose}
-            className="w-full sm:flex-1 py-3 px-5 rounded-full bg-[#E53935] hover:bg-[#D32F2F] text-white text-xs font-black shadow-md cursor-pointer transition-transform active:scale-95"
+            className="w-full sm:flex-1 min-h-[44px] py-3 px-5 rounded-full bg-[#E53935] hover:bg-[#D32F2F] text-white text-xs font-black shadow-md cursor-pointer transition-transform active:scale-95"
           >
             {isNl ? 'Sluiten & Nieuwe Bestelling' : 'Close & New Order'}
           </button>

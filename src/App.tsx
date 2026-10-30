@@ -18,8 +18,9 @@ import { CartDrawer } from './components/CartDrawer';
 import { CheckoutModal } from './components/CheckoutModal';
 import { OrderConfirmationModal } from './components/OrderConfirmationModal';
 import { MobileStickyBar } from './components/MobileStickyBar';
+import { ScrollReveal } from './components/ScrollReveal';
 import { MENU_ITEMS, OFFICIAL_STORE } from './data/menuData';
-import { MenuItem, ProductVariant, CartItem, CustomerInfo, PlacedOrder, StoreLocation, Language } from './types';
+import { MenuItem, ProductVariant, CartItem, CustomerInfo, PlacedOrder, StoreLocation, Language, CategoryId } from './types';
 import { submitOrderToRestaurant } from './services/orderService';
 
 const CART_STORAGE_KEY = 'shawarma_time_active_cart_v2';
@@ -27,6 +28,9 @@ const CART_STORAGE_KEY = 'shawarma_time_active_cart_v2';
 export default function App() {
   // Language state (Dutch default as requested)
   const [language, setLanguage] = useState<Language>('nl');
+
+  // Active menu category state (linked to navigation drawer & menu tabs)
+  const [activeCategory, setActiveCategory] = useState<CategoryId>('deals');
 
   // Selected store and order type for service indication
   const [orderType, setOrderType] = useState<'pickup' | 'delivery'>('pickup');
@@ -157,6 +161,12 @@ export default function App() {
     }
   };
 
+  const handleSelectCategoryFromNav = (catId: CategoryId) => {
+    setActiveCategory(catId);
+    const menuElement = document.getElementById('menu');
+    menuElement?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const scrollToMenu = () => {
     const menuElement = document.getElementById('menu');
     menuElement?.scrollIntoView({ behavior: 'smooth' });
@@ -166,13 +176,14 @@ export default function App() {
 
   return (
     <div id="top" className="min-h-screen bg-[#FFFDF7] flex flex-col font-sans selection:bg-[#E53935] selection:text-white">
-      {/* 1. Header Navigation with Authentic Official Logo, Visible NL | EN Switcher & Basket */}
+      {/* 1. Header Navigation with Mobile Top-Left 3-Line Hamburger & Sliding Drawer, Authentic Logo, Visible NL | EN & Basket */}
       <Navbar
         language={language}
         onToggleLanguage={setLanguage}
         basketCount={totalBasketCount}
         onOpenBasket={() => setIsBasketOpen(true)}
         onOrderClick={scrollToMenu}
+        onSelectCategory={handleSelectCategoryFromNav}
       />
 
       {/* 2. Promo / Store Strip with Pickup vs Delivery toggle */}
@@ -195,36 +206,48 @@ export default function App() {
           onExploreMenu={scrollToMenu}
         />
 
-        {/* 4. Full Verified Official Menu with 5 Exact Categories, Distinct Side Dish Images & Working Add to Basket */}
-        <MenuSection
-          items={MENU_ITEMS}
-          language={language}
-          onSelectItem={handleOpenDetail}
-          onQuickAddToCart={handleQuickAddToCart}
-        />
+        {/* 4. Full Verified Official Menu with 5 Exact Categories & Working Add to Basket */}
+        <ScrollReveal>
+          <MenuSection
+            items={MENU_ITEMS}
+            language={language}
+            onSelectItem={handleOpenDetail}
+            onQuickAddToCart={handleQuickAddToCart}
+            selectedCategory={activeCategory}
+            onSelectCategory={setActiveCategory}
+          />
+        </ScrollReveal>
 
         {/* 5. Arabische Schotels Spotlight */}
-        <ArabiPlattersSection
-          onSelectArabi={handleOpenDetail}
-          arabiItems={MENU_ITEMS.filter((m) => m.category === 'maaltijden')}
-          language={language}
-        />
+        <ScrollReveal>
+          <ArabiPlattersSection
+            onSelectArabi={handleOpenDetail}
+            arabiItems={MENU_ITEMS.filter((m) => m.category === 'maaltijden')}
+            language={language}
+          />
+        </ScrollReveal>
 
         {/* 6. Combi Deals Section */}
-        <DealsSection
-          onSelectDeal={handleOpenDetail}
-          dealItems={MENU_ITEMS}
-          language={language}
-        />
+        <ScrollReveal>
+          <DealsSection
+            onSelectDeal={handleOpenDetail}
+            dealItems={MENU_ITEMS}
+            language={language}
+          />
+        </ScrollReveal>
 
         {/* 7. Craftsmanship Story Section */}
-        <StorySection language={language} />
+        <ScrollReveal>
+          <StorySection language={language} />
+        </ScrollReveal>
 
         {/* 8. Locations & Hours Section for Venlo */}
-        <LocationsSection
-          onStartOrder={scrollToMenu}
-          language={language}
-        />
+        <ScrollReveal>
+          <LocationsSection
+            onStartOrder={scrollToMenu}
+            language={language}
+          />
+        </ScrollReveal>
       </main>
 
       {/* 9. Clean Footer with Authentic Logo */}

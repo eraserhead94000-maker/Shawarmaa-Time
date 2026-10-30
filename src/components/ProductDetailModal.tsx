@@ -65,24 +65,24 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-stone-900/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 overflow-y-auto bg-stone-900/70 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6 animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-lg bg-[#FFFDF7] rounded-3xl shadow-2xl border-2 border-amber-200/90 overflow-hidden flex flex-col max-h-[92vh]"
+        className="relative w-full max-w-lg bg-[#FFFDF7] rounded-t-3xl sm:rounded-3xl shadow-2xl border-t-2 sm:border-2 border-amber-200/90 overflow-hidden flex flex-col max-h-[92vh] sm:max-h-[88vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label={isNl ? 'Sluiten' : 'Close'}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-stone-700 hover:text-stone-900 flex items-center justify-center shadow-md transition-all active:scale-95 cursor-pointer border border-stone-200"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 w-10 h-10 min-w-10 min-h-10 rounded-full bg-white/90 hover:bg-white text-stone-700 hover:text-stone-900 flex items-center justify-center shadow-md transition-all active:scale-95 cursor-pointer border border-stone-200"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Modal Header & Image */}
-        <div className="relative h-44 sm:h-64 w-full shrink-0 overflow-hidden bg-stone-100">
+        <div className="relative h-40 sm:h-64 w-full shrink-0 overflow-hidden bg-stone-100">
           <img
             src={item.image}
             alt={itemName}
@@ -228,23 +228,25 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               <span className="text-xs font-black uppercase tracking-wider text-stone-900">
                 {isNl ? 'Aantal stuks:' : 'Quantity:'}
               </span>
-              <div className="flex items-center gap-3 bg-stone-100 rounded-full px-3 py-1 border border-stone-200">
+              <div className="flex items-center gap-3 bg-stone-100 rounded-full px-3 py-1.5 border border-stone-200">
                 <button
                   type="button"
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  className="w-7 h-7 rounded-full bg-white text-stone-800 flex items-center justify-center shadow-xs hover:bg-stone-200 transition-colors cursor-pointer"
+                  className="w-9 h-9 min-w-9 min-h-9 rounded-full bg-white text-stone-800 flex items-center justify-center shadow-xs hover:bg-stone-200 transition-colors cursor-pointer active:scale-95"
+                  aria-label="Verminder aantal"
                 >
-                  <Minus className="w-3.5 h-3.5" />
+                  <Minus className="w-4 h-4" />
                 </button>
-                <span className="text-base font-black text-stone-900 tabular-nums w-5 text-center">
+                <span className="text-base font-black text-stone-900 tabular-nums w-6 text-center">
                   {quantity}
                 </span>
                 <button
                   type="button"
                   onClick={() => setQuantity((q) => q + 1)}
-                  className="w-7 h-7 rounded-full bg-white text-stone-800 flex items-center justify-center shadow-xs hover:bg-stone-200 transition-colors cursor-pointer"
+                  className="w-9 h-9 min-w-9 min-h-9 rounded-full bg-white text-stone-800 flex items-center justify-center shadow-xs hover:bg-stone-200 transition-colors cursor-pointer active:scale-95"
+                  aria-label="Vermeerder aantal"
                 >
-                  <Plus className="w-3.5 h-3.5" />
+                  <Plus className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -258,14 +260,14 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder={isNl ? 'Bijv. extra knoflooksaus, zonder ui...' : 'E.g. extra garlic sauce, no onions...'}
-                className="w-full px-3.5 py-2 rounded-xl border border-stone-300 bg-white text-xs focus:outline-[#E53935]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-base sm:text-xs focus:outline-[#E53935]"
               />
             </div>
           </div>
         </div>
 
-        {/* Modal Footer: Add To Basket Button */}
-        <div className="p-4 sm:p-5 bg-white border-t border-amber-200 flex items-center justify-between gap-4">
+        {/* Modal Footer: Add To Basket Button with Safe-Area Padding */}
+        <div className="p-4 sm:p-5 pb-[calc(1rem+env(safe-area-inset-bottom,0px))] bg-white border-t border-amber-200 flex items-center justify-between gap-3 sm:gap-4">
           <div className="flex flex-col">
             <span className="text-[10px] uppercase font-bold text-stone-400">
               {isNl ? 'Totaal voor item' : 'Item total'}
@@ -278,7 +280,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           <button
             type="button"
             onClick={handleAdd}
-            className={`btn-press flex-1 py-3.5 px-6 rounded-full font-black text-sm tracking-wide shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-95 ${
+            className={`btn-press flex-1 min-h-[48px] py-3.5 px-4 sm:px-6 rounded-full font-black text-xs sm:text-sm tracking-wide shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-95 ${
               isAddedFeedback
                 ? 'bg-emerald-600 text-white shadow-emerald-600/30'
                 : 'bg-[#E53935] hover:bg-[#D32F2F] text-white shadow-rose-600/30'

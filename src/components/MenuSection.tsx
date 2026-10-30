@@ -8,6 +8,8 @@ interface MenuSectionProps {
   language: Language;
   onSelectItem: (item: MenuItem) => void;
   onQuickAddToCart: (item: MenuItem) => void;
+  selectedCategory?: CategoryId;
+  onSelectCategory?: (category: CategoryId) => void;
 }
 
 export const MenuSection: React.FC<MenuSectionProps> = ({
@@ -15,9 +17,22 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
   language,
   onSelectItem,
   onQuickAddToCart,
+  selectedCategory: controlledCategory,
+  onSelectCategory,
 }) => {
-  // Default to the first category: 'deals' (Combi Deals)
-  const [selectedCategory, setSelectedCategory] = useState<CategoryId>('deals');
+  // Support both controlled and uncontrolled category state
+  const [internalCategory, setInternalCategory] = useState<CategoryId>('deals');
+  const selectedCategory = controlledCategory || internalCategory;
+
+  const handleCategoryTabClick = (catId: CategoryId) => {
+    if (onSelectCategory) {
+      onSelectCategory(catId);
+    } else {
+      setInternalCategory(catId);
+    }
+    setSearchQuery('');
+  };
+
   const [searchQuery, setSearchQuery] = useState('');
   const [addedFeedbackIds, setAddedFeedbackIds] = useState<{ [key: string]: boolean }>({});
 
@@ -91,7 +106,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
               placeholder={isNl ? 'Zoek gerecht, drankje, sambosa...' : 'Search dish, drink, mezza...'}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 sm:py-2.5 rounded-full border border-stone-300 bg-white text-xs sm:text-sm focus:outline-[#E53935] shadow-xs"
+              className="w-full pl-10 pr-4 py-2.5 rounded-full border border-stone-300 bg-white text-base sm:text-sm focus:outline-[#E53935] shadow-xs"
             />
           </div>
         </div>
@@ -107,11 +122,8 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
               return (
                 <button
                   key={cat.id}
-                  onClick={() => {
-                    setSelectedCategory(cat.id);
-                    setSearchQuery('');
-                  }}
-                  className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-black transition-all cursor-pointer select-none active:scale-95 ${
+                  onClick={() => handleCategoryTabClick(cat.id)}
+                  className={`shrink-0 flex items-center gap-1.5 sm:gap-2 min-h-[44px] px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-black transition-all cursor-pointer select-none active:scale-95 ${
                     isActive
                       ? 'bg-[#E53935] text-white shadow-lg shadow-rose-600/30 ring-2 ring-rose-500/30'
                       : 'bg-white hover:bg-stone-100 text-stone-800 border border-stone-200 shadow-xs'
@@ -192,7 +204,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                 }`}
               >
                 {/* Image Section */}
-                <div className="relative h-36 sm:h-52 lg:h-56 w-full overflow-hidden bg-stone-100">
+                <div className="relative h-44 sm:h-52 lg:h-56 w-full overflow-hidden bg-stone-100">
                   <img
                     src={item.image}
                     alt={itemName}
@@ -287,12 +299,12 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                     <button
                       type="button"
                       onClick={(e) => handleButtonClick(item, e)}
-                      className={`btn-press flex items-center justify-center gap-1 sm:gap-1.5 px-3.5 sm:px-4 lg:px-5 py-2 sm:py-2.5 rounded-full font-black text-xs transition-all cursor-pointer shadow-md active:scale-95 min-h-[38px] sm:min-h-[42px] ${
+                      className={`btn-press flex items-center justify-center gap-1 sm:gap-1.5 px-3.5 sm:px-4 lg:px-5 py-2.5 rounded-full font-black text-xs transition-all duration-200 cursor-pointer shadow-md active:scale-95 min-h-[44px] ${
                         isJustAdded
-                          ? 'bg-emerald-600 text-white shadow-emerald-600/30'
+                          ? 'bg-emerald-600 text-white shadow-emerald-600/30 scale-105 ring-4 ring-emerald-300/40'
                           : hasVariants
-                          ? 'bg-stone-900 hover:bg-stone-800 text-white shadow-stone-900/20'
-                          : 'bg-[#E53935] hover:bg-[#D32F2F] text-white shadow-rose-600/20'
+                          ? 'bg-stone-900 hover:bg-stone-800 text-white shadow-stone-900/20 hover:scale-102'
+                          : 'bg-[#E53935] hover:bg-[#D32F2F] text-white shadow-rose-600/20 hover:scale-102'
                       }`}
                     >
                       {isJustAdded ? (
