@@ -18,6 +18,10 @@ import syrianMezzaHummus from '../assets/images/food_syrian_mezza_hummus_1793132
 import crispyChickenWrap from '../assets/images/crispy_chicken_wrap_1793317811621.jpg';
 import spicyZingerWrap from '../assets/images/spicy_zinger_wrap_1793317811968.jpg';
 import classicBeefBurger from '../assets/images/classic_beef_burger_1793317812410.jpg';
+import mealBroastedChicken from '../assets/images/meal_broasted_chicken_1793320052831.jpg';
+import mealGrilledChicken from '../assets/images/meal_grilled_chicken_1793320052968.jpg';
+import mealCrispyTenders from '../assets/images/meal_crispy_tenders_1793320053432.jpg';
+import mealZingerSpicyChicken from '../assets/images/meal_zinger_spicy_chicken_1793320064606.jpg';
 
 // Dedicated accurate drink images
 import drinkLiptonIceTea from '../assets/images/drink_lipton_ice_tea_1793133417816.jpg';
@@ -59,6 +63,10 @@ export const MEZZA_IMAGE = syrianMezzaHummus;
 export const CRISPY_CHICKEN_WRAP_IMAGE = crispyChickenWrap;
 export const SPICY_ZINGER_WRAP_IMAGE = spicyZingerWrap;
 export const CLASSIC_BEEF_BURGER_IMAGE = classicBeefBurger;
+export const MEAL_BROASTED_CHICKEN_IMAGE = mealBroastedChicken;
+export const MEAL_GRILLED_CHICKEN_IMAGE = mealGrilledChicken;
+export const MEAL_CRISPY_TENDERS_IMAGE = mealCrispyTenders;
+export const MEAL_ZINGER_SPICY_IMAGE = mealZingerSpicyChicken;
 
 // Dedicated accurate drink images
 export const DRINK_LIPTON_PEACH_IMAGE = drinkLiptonIceTea;
@@ -375,7 +383,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Krokante broasted kip, geserveerd met friet en diverse sausjes.',
     descriptionEn: 'Crispy golden fried broasted chicken served with fries and assorted sauces.',
     price: 14.00,
-    image: BROASTED_IMAGE,
+    image: MEAL_BROASTED_CHICKEN_IMAGE,
     badge: 'KROKANT',
     badgeEn: 'CRISPY',
     badgeColor: 'amber',
@@ -407,7 +415,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Gegrilde kip met rijst OF friet, geserveerd met diverse sausjes.',
     descriptionEn: 'Tender seasoned grilled chicken with choice of rice OR fries, served with sauces.',
     price: 13.50,
-    image: BROASTED_IMAGE,
+    image: MEAL_GRILLED_CHICKEN_IMAGE,
     allergens: 'A,C',
     variants: [
       {
@@ -436,7 +444,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Kipfilet geserveerd met friet en diverse sausjes.',
     descriptionEn: 'Crispy chicken breast fillets served with fries and assorted sauces.',
     price: 15.00,
-    image: BROASTED_IMAGE,
+    image: MEAL_CRISPY_TENDERS_IMAGE,
     allergens: 'A,C,G',
   },
   {
@@ -447,7 +455,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Pittige kipfilet geserveerd met friet en diverse sausjes.',
     descriptionEn: 'Spicy chicken breast fillets served with fries and assorted dipping sauces.',
     price: 16.00,
-    image: BROASTED_IMAGE,
+    image: MEAL_ZINGER_SPICY_IMAGE,
     badge: 'PITTIG',
     badgeEn: 'SPICY',
     badgeColor: 'red',

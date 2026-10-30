@@ -17,7 +17,6 @@ import { ProductDetailModal } from './components/ProductDetailModal';
 import { CartDrawer } from './components/CartDrawer';
 import { CheckoutModal } from './components/CheckoutModal';
 import { OrderConfirmationModal } from './components/OrderConfirmationModal';
-import { MobileStickyBar } from './components/MobileStickyBar';
 import { ScrollReveal } from './components/ScrollReveal';
 import { MENU_ITEMS, OFFICIAL_STORE } from './data/menuData';
 import { MenuItem, ProductVariant, CartItem, CustomerInfo, PlacedOrder, StoreLocation, Language, CategoryId } from './types';
@@ -198,7 +197,7 @@ export default function App() {
         }}
       />
 
-      <main className="flex-1 pb-24 md:pb-0">
+      <main className="flex-1">
         {/* 3. Hero Section */}
         <Hero
           language={language}
@@ -253,15 +252,7 @@ export default function App() {
       {/* 9. Clean Footer with Authentic Logo */}
       <Footer language={language} />
 
-      {/* 10. Floating Mobile Sticky Bar for Fast Basket Access and Menu Navigation */}
-      <MobileStickyBar
-        language={language}
-        cart={cart}
-        onOpenBasket={() => setIsBasketOpen(true)}
-        onExploreMenu={scrollToMenu}
-      />
-
-      {/* 11. Product Selection Modal (Accurate variants, Live Price, Add to Basket) */}
+      {/* 10. Product Selection Modal (Accurate variants, Live Price, Add to Basket) */}
       <ProductDetailModal
         item={selectedItemForDetail}
         isOpen={isDetailModalOpen}
